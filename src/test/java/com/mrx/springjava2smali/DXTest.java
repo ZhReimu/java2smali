@@ -13,10 +13,10 @@ import org.junit.jupiter.api.Test;
 public class DXTest {
 
     public static void main(String[] args) {
-        Class2Dex.class2dex(IOUtils.readBytes("1.class"), bytes -> {
-            IOUtils.writeToFile("1.dex", bytes);
-            Dex2Smali.dex2smali(bytes, smali -> IOUtils.writeToFile("test.smali", smali));
-        });
+        byte[] res = Class2Dex.class2dex(IOUtils.readBytes("1.class"));
+        IOUtils.writeToFile("1.dex", res);
+        byte[] smali = Dex2Smali.dex2smali(res);
+        IOUtils.writeToFile("test.smali", smali);
     }
 
     @Test

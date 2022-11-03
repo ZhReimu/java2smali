@@ -2,6 +2,7 @@ package com.mrx.springjava2smali.java2smali;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Ordering;
+import com.mrx.springjava2smali.java2smali.util.XPromise;
 import org.jf.baksmali.Adaptors.ClassDefinition;
 import org.jf.baksmali.Baksmali;
 import org.jf.baksmali.BaksmaliOptions;
@@ -28,6 +29,16 @@ public class Dex2Smali {
     public static void dex2smali(byte[] dexBytes, Consumer<byte[]> consumer) {
         try {
             new MemBakSmali(consumer).disassembleDexFile(new DexBackedDexFile(null, dexBytes));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static byte[] dex2smali(byte[] dexBytes) {
+        try {
+            XPromise<byte[]> res = new XPromise<>();
+            new MemBakSmali(res).disassembleDexFile(new DexBackedDexFile(null, dexBytes));
+            return res.get();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

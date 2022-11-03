@@ -1,4 +1,4 @@
-.class public LDXTest;
+.class public Lcom/mrx/DXTest;
 .super Ljava/lang/Object;
 .source "DXTest.java"
 
@@ -7,9 +7,10 @@
 .method public constructor <init>()V
     .registers 1
 
-    .line 5
+    .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 9
     return-void
 .end method
 
@@ -18,6 +19,6 @@
 .method public java2Dex()V
     .registers 1
 
-    .line 9
+    .line 12
     return-void
 .end method

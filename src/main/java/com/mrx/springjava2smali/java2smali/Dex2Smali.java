@@ -24,6 +24,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.function.Consumer;
 
+@SuppressWarnings("unused")
 public class Dex2Smali {
 
     public static void dex2smali(byte[] dexBytes, Consumer<byte[]> consumer) {
@@ -44,6 +45,7 @@ public class Dex2Smali {
         }
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     private static class MemBakSmali {
 
         private final Consumer<byte[]> consumer;
